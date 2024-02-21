@@ -348,11 +348,23 @@
   
     <article id="comments" lazyload>
       
-  <div id="SOHUCS" sid='http://example.com/2024/02/11/%E7%BD%91%E7%AB%99%E8%AF%9E%E7%94%9F/'></div>
+  <div id="valine"></div>
   <script type="text/javascript">
-    Fluid.utils.loadComments('#SOHUCS', function() {
-      Fluid.utils.createScript("https://changyan.sohu.com/upload/changyan.js", function() {
-        window.changyan.api.config({"appid":"cyx9PbUrg","appkey":"636de4db5ea95059b49b365db1ca98f6"})
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"9UeY77I7W9NXtH4JLQH54PlX-MdYXbMMI","appKey":"wV6SusrUfl3SqyUjyzRrRXp3","path":"window.location.pathname","placeholder":"写下你的评论!😍","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
       });
     });
   </script>
