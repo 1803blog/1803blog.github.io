@@ -348,24 +348,25 @@
   
     <article id="comments" lazyload>
       
-  <div id="valine"></div>
+  <div class="cusdis" style="width:100%">
+    <div id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="b4cac11f-a76c-4236-b292-de514d8c6e23"
+      data-page-id="fd789c50d64e2fc900416c9e75a210a0"
+      data-page-url="2024/03/03/ÍøÕ¾µ®Éú/"
+      data-page-title="网站诞生"
+      data-theme="auto"
+    >
+    </div>
+  </div>
   <script type="text/javascript">
-    Fluid.utils.loadComments('#valine', function() {
-      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
-        var options = Object.assign(
-          {"appId":"9UeY77I7W9NXtH4JLQH54PlX-MdYXbMMI","appKey":"wV6SusrUfl3SqyUjyzRrRXp3","path":"window.location.pathname","placeholder":"写下你的评论!😍","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
-          {
-            el: "#valine",
-            path: window.location.pathname
-          }
-        )
-        new Valine(options);
-        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
-          var imgSelector = '#valine .vcontent img:not(.vemoji)';
-          Fluid.plugins.imageCaption(imgSelector);
-          Fluid.plugins.fancyBox(imgSelector);
-        })
-      });
+    Fluid.utils.loadComments('#cusdis_thread', function() {
+      Fluid.utils.createScript('https://cusdis.com/js/widget/lang/zh-cn.js');
+      Fluid.utils.createScript('https://cusdis.com/js/cusdis.es.js');
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema) {
+        document.querySelector('#cusdis_thread').dataset.theme = schema
+      }
     });
   </script>
   <noscript>Please enable JavaScript to view the comments</noscript>
